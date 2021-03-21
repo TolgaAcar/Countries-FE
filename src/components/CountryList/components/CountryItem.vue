@@ -50,7 +50,6 @@ export default {
     img {
         width: 100%;
         height: 50%;
-        border-radius: 4px;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
     }

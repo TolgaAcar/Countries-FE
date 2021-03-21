@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import api from "../module/api/api";
-import CountryItem from "./CountryItem.vue";
+import api from "@/module/api/api";
+import CountryItem from "./components/CountryItem.vue";
 
 export default {
     components: { CountryItem },
@@ -38,5 +38,9 @@ export default {
     flex-wrap: wrap;
     margin: 20px 30px;
     justify-content: center;
+
+    & div {
+        margin: 25px;
+    }
 }
 </style>

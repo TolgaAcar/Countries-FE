@@ -12,12 +12,18 @@ export default {
 
 <style lang="scss" scoped>
 .search-input {
+    width: 762px;
+
     input {
         padding: 12px 22px;
         box-sizing: border-box;
+        border-radius: 4px;
         border: none;
         color: $white;
         background-color: $dark-blue;
+        font-family: inherit;
+        height: 100%;
+        width: 100%;
     }
 
     ::placeholder {
