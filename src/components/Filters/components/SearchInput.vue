@@ -1,12 +1,26 @@
 <template>
     <div class="search-input">
-        <input type="text" placeholder="Search for a country" />
+        <input
+            type="text"
+            v-model="searchKeyword"
+            placeholder="Search for a country"
+        />
     </div>
 </template>
 
 <script>
 export default {
     name: "SearchInput",
+    data() {
+        return {
+            searchKeyword: "",
+        };
+    },
+    watch: {
+        searchKeyword: function (val) {
+            this.$store.dispatch("setCountryInput", val);
+        },
+    },
 };
 </script>
 

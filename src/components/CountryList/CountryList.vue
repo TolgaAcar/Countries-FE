@@ -1,7 +1,7 @@
 <template>
     <div class="country-list">
         <country-item
-            v-for="(country, index) in countryList"
+            v-for="(country, index) in filteredCountryList"
             :country="country"
             :key="index"
         ></country-item>
@@ -17,16 +17,29 @@ export default {
     name: "CountryList",
     data() {
         return {
-            countryList: {},
+            countryList: [],
             all: "all",
         };
+    },
+    computed: {
+        filteredCountryList() {
+            return this.filterCountryList(this.$store.state.countryInput);
+        },
     },
     methods: {
         async fetchCountryList() {
             this.countryList = await api.fetchData(this.all);
+            this.$store.dispatch("setCountryList", this.countryList);
+        },
+        filterCountryList(keyword) {
+            return this.countryList.filter((country) => {
+                return country.name
+                    .toLowerCase()
+                    .includes(keyword.toLowerCase());
+            });
         },
     },
-    mounted() {
+    created() {
         this.fetchCountryList();
     },
 };

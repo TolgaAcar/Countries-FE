@@ -1,14 +1,12 @@
-const path = require('path');
-
 module.exports = {
-  css: {
-    loaderOptions: {
-      sass: {
-        additionalData: `
-        @import "@/styles/globals.scss";
-        @import "@/styles/variables.scss";
-        `
-      }
-    }
-  }
+	css: {
+		loaderOptions: {
+			sass: {
+				additionalData: `
+					@import "@/styles/globals.scss";
+					@import "@/styles/variables.scss";
+        		`,
+			},
+		},
+	},
 };
