@@ -25,10 +25,26 @@ export default {
         filteredCountryList() {
             return this.filterCountryList(this.$store.state.countryInput);
         },
+        selectedRegion() {
+            return this.$store.state.region;
+        },
+    },
+    watch: {
+        selectedRegion: function (val) {
+            let query = "";
+
+            if (val === "" || val === "all") {
+                query = this.all;
+            } else {
+                query = `region/${val}`;
+            }
+
+            this.fetchCountryList(query);
+        },
     },
     methods: {
-        async fetchCountryList() {
-            this.countryList = await api.fetchData(this.all);
+        async fetchCountryList(query) {
+            this.countryList = await api.fetchData(query);
             this.$store.dispatch("setCountryList", this.countryList);
         },
         filterCountryList(keyword) {
@@ -40,7 +56,7 @@ export default {
         },
     },
     created() {
-        this.fetchCountryList();
+        this.fetchCountryList(this.all);
     },
 };
 </script>

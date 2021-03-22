@@ -4,6 +4,7 @@ export default createStore({
 	state: {
 		countryList: [],
 		countryInput: "",
+		region: "",
 	},
 	mutations: {
 		SET_COUNTRY_LIST(state, countryList) {
@@ -12,6 +13,9 @@ export default createStore({
 		SET_COUNTRY_INPUT(state, countryInput) {
 			state.countryInput = countryInput;
 		},
+		SET_REGION(state, region) {
+			state.region = region;
+		},
 	},
 	actions: {
 		setCountryList({ commit }, countryList) {
@@ -19,6 +23,9 @@ export default createStore({
 		},
 		setCountryInput({ commit }, countryInput) {
 			commit("SET_COUNTRY_INPUT", countryInput);
+		},
+		setRegion({ commit }, region) {
+			commit("SET_REGION", region);
 		},
 	},
 	modules: {},

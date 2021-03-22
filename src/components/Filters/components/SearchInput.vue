@@ -26,7 +26,8 @@ export default {
 
 <style lang="scss" scoped>
 .search-input {
-    width: 762px;
+    width: 550px;
+    margin-top: 40px;
 
     input {
         padding: 12px 22px;
@@ -36,7 +37,7 @@ export default {
         color: $white;
         background-color: $dark-blue;
         font-family: inherit;
-        height: 100%;
+        height: 60px;
         width: 100%;
     }
 

@@ -19,7 +19,6 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    height: 60px;
-    margin: 40px 80px;
+    margin: 0 80px 40px;
 }
 </style>
