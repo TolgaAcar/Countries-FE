@@ -19,6 +19,6 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 80px 40px;
+    margin: 0 $space $space;
 }
 </style>

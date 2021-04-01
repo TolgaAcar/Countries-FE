@@ -19,6 +19,6 @@ export default {
     font-size: 20px;
     display: flex;
     align-items: center;
-    padding: 40px 80px;
+    padding: $space;
 }
 </style>

@@ -38,11 +38,11 @@ export default {
 
 <style lang="scss" scoped>
 .dropdown-wrapper {
-    margin-top: 40px;
+    margin-top: $space;
 
     .regions-dropdown {
         border: unset;
-        border-radius: 4px;
+        border-radius: $border-radius;
         padding: 12px 22px;
         outline: none;
         color: $white;

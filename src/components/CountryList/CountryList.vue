@@ -1,10 +1,19 @@
 <template>
     <div class="country-list">
-        <country-item
+        <div
+            class="country-item-wrapper"
             v-for="(country, index) in filteredCountryList"
-            :country="country"
             :key="index"
-        ></country-item>
+        >
+            <router-link
+                :to="{
+                    name: 'Details',
+                    params: { name: country.name },
+                }"
+            >
+                <country-item :country="country"></country-item>
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -65,11 +74,6 @@ export default {
 .country-list {
     display: flex;
     flex-wrap: wrap;
-    margin: 20px 30px;
     justify-content: center;
-
-    & div {
-        margin: 25px;
-    }
 }
 </style>

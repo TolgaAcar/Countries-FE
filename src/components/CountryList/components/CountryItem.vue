@@ -39,19 +39,24 @@ export default {
 .country {
     background: $dark-blue;
     border-collapse: collapse;
-    border-radius: 4px;
+    border-radius: $border-radius;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 25px;
     height: 400px;
     width: 304px;
+    transition: 0.1s ease-in-out;
+
+    &:hover {
+        transform: scale(1.03);
+    }
 
     img {
         width: 100%;
         height: 50%;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
     }
 
     .details {

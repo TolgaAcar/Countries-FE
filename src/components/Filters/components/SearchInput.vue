@@ -27,12 +27,12 @@ export default {
 <style lang="scss" scoped>
 .search-input {
     width: 550px;
-    margin-top: 40px;
+    margin-top: $space;
 
     input {
         padding: 12px 22px;
         box-sizing: border-box;
-        border-radius: 4px;
+        border-radius: $border-radius;
         border: none;
         color: $white;
         background-color: $dark-blue;
