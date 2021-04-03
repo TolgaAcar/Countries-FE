@@ -31,7 +31,6 @@ export default {
             return this.country.population.toLocaleString();
         },
     },
-    mounted() {},
 };
 </script>
 

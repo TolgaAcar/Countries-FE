@@ -8,6 +8,7 @@
 <script>
 import Dropdown from "./components/Dropdown.vue";
 import SearchInput from "./components/SearchInput.vue";
+
 export default {
     components: { Dropdown, SearchInput },
     name: "Filters",
