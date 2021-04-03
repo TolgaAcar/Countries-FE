@@ -19,6 +19,8 @@ Users should be able to:
 ## Built with
 
 -   [Vue 3](https://v3.vuejs.org/) - The Progressive JavaScript Framework
+-   [Vue Router](https://router.vuejs.org/) - The official router for Vue.js.
+-   [Vuex](https://vuex.vuejs.org/) - State management pattern + library for Vue.js applications
 -   HTML
 -   SCSS
 
