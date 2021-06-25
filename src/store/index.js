@@ -5,6 +5,7 @@ export default createStore({
 		countryList: [],
 		countryInput: "",
 		region: "",
+		isLoading: "",
 	},
 	mutations: {
 		SET_COUNTRY_LIST(state, countryList) {
@@ -15,6 +16,9 @@ export default createStore({
 		},
 		SET_REGION(state, region) {
 			state.region = region;
+		},
+		SET_IS_LOADING(state, isLoading) {
+			state.isLoading = isLoading;
 		},
 	},
 	actions: {
@@ -27,6 +31,9 @@ export default createStore({
 		setRegion({ commit }, region) {
 			commit("SET_REGION", region);
 		},
+		setIsLoading({ commit }, isLoading) {
+			commit("SET_IS_LOADING", isLoading);
+		}
 	},
 	modules: {},
 });

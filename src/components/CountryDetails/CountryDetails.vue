@@ -1,71 +1,81 @@
-<template v-if="country">
-    <div class="country-details">
-        <img :src="country.flag" />
-        <div class="country-text-details">
-            <div class="name">{{ country.name }}</div>
-            <div class="detailed-fields">
-                <div class="native-name">
-                    Native name: <span>{{ country.nativeName }}</span>
-                </div>
-                <div class="population">
-                    Population: <span>{{ formattedPopulation }}</span>
-                </div>
-                <div class="region">
-                    Region: <span>{{ country.region }}</span>
-                </div>
-                <div class="sub-region">
-                    Sub Region: <span>{{ country.subregion }}</span>
-                </div>
-                <div class="capital">
-                    Capital: <span>{{ country.capital }}</span>
-                </div>
-                <div class="top-level-domain">
-                    Top Level Domain:
-                    <span
-                        v-for="(domain, index) in country.topLevelDomain"
-                        :key="index"
-                        >{{ domain }}</span
-                    >
-                </div>
-                <div class="currencies">
-                    Currencies:
-                    <span
-                        v-for="(currency, index) in country.currencies"
-                        :key="index"
-                    >
-                        {{ currency.name }}
-                    </span>
-                </div>
-                <div class="languages">
-                    Languages:
-                    <span
-                        v-for="(language, index) in country.languages"
-                        :key="index"
-                    >
-                        {{ language.name }}
-                    </span>
+<template>
+    <div class="country-details-wrapper">
+        <div v-show="!isLoading" class="country-details">
+            <img :src="country.flag" />
+            <div class="country-text-details">
+                <div class="name">{{ country.name }}</div>
+                <div class="detailed-fields">
+                    <div class="native-name">
+                        Native name: <span>{{ country.nativeName }}</span>
+                    </div>
+                    <div class="population">
+                        Population: <span>{{ formattedPopulation }}</span>
+                    </div>
+                    <div class="region">
+                        Region: <span>{{ country.region }}</span>
+                    </div>
+                    <div class="sub-region">
+                        Sub Region: <span>{{ country.subregion }}</span>
+                    </div>
+                    <div class="capital">
+                        Capital: <span>{{ country.capital }}</span>
+                    </div>
+                    <div class="top-level-domain">
+                        Top Level Domain:
+                        <span
+                            v-for="(domain, index) in country.topLevelDomain"
+                            :key="index"
+                            >{{ domain }}</span
+                        >
+                    </div>
+                    <div class="currencies">
+                        Currencies:
+                        <span
+                            v-for="(currency, index) in country.currencies"
+                            :key="index"
+                        >
+                            {{ currency.name }}
+                        </span>
+                    </div>
+                    <div class="languages">
+                        Languages:
+                        <span
+                            v-for="(language, index) in country.languages"
+                            :key="index"
+                        >
+                            {{ language.name }}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
+        <loading v-show="isLoading"></loading>
     </div>
 </template>
 
 <script>
 import api from "@/module/api/api";
 import { useRoute } from "vue-router";
+import Loading from "../Loading/Loading.vue";
 
 export default {
+    components: { Loading },
     name: "CountryDetails",
     data() {
         return {
-            country: {
-                population: 0,
-            },
+            country: {},
         };
     },
     computed: {
         formattedPopulation() {
-            return this.country.population.toLocaleString();
+            return (
+                this.country &&
+                this.country.population &&
+                this.country.population.toLocaleString()
+            );
+        },
+        isLoading() {
+            return Object.keys(this.country).length === 0;
         },
     },
     beforeMount() {

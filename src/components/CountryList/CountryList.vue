@@ -53,8 +53,10 @@ export default {
     },
     methods: {
         async fetchCountryList(query) {
+            this.$store.dispatch("setIsLoading", true);
             this.countryList = await api.fetchData(query);
             this.$store.dispatch("setCountryList", this.countryList);
+            this.$store.dispatch("setIsLoading", false);
         },
         filterCountryList(keyword) {
             return this.countryList.filter((country) => {
