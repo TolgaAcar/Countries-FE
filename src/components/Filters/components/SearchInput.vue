@@ -2,7 +2,8 @@
     <div class="search-input">
         <input
             type="text"
-            v-model="searchKeyword"
+            :value="searchKeyword"
+            @input="(e) => (searchKeyword = e.target.value)"
             placeholder="Search for a country"
         />
     </div>
